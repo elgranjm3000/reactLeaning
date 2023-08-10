@@ -17,12 +17,12 @@ class SeccionPrueba extends Component {
         )
         return presentacion
       }
-      sumar(e){
+      sumar = (e) =>{
         this.setState({
             contador : (this.state.contador+1)
         })
       }
-      restar(e){
+      restar = (e) => {
         this.setState({
             contador : (this.state.contador-1)
         })
@@ -45,8 +45,8 @@ class SeccionPrueba extends Component {
                     
                 </p>
                 <p>
-                    <button className="button" onClick={this.sumar.bind(this)}>Sumar</button>
-                    <button className="button" onClick={this.restar.bind(this)}>Restar</button>
+                    <button className="button" onClick={this.sumar}>Sumar</button>
+                    <button className="button" onClick={this.restar}>Restar</button>
                 </p>
 
                 <section className="componentes">
