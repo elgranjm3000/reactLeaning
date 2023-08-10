@@ -6,20 +6,23 @@ import Header from './components/Header';
 import Slyder from './components/Slyder';
 import Sidebar from './components/Sidebar';
 import Footer from './components/Footer';
-import SeccionPrueba from './components/SeccionPrueba';
 
+import Peliculas from './components/Peliculas';
 function App() {
  
-  
+  var btnString = "Leer más" 
   
   return (
     <div className="app">
       <Header/>
-      <Slyder/>
+      <Slyder 
+        title = "Bienvenido al Curso de React con Víctor Robles de victorroblesweb.es"
+        btn = {btnString}
+      />
      
       
       <div className="center">
-            <SeccionPrueba/>
+            <Peliculas/>
             <Sidebar/>
         <div className='clearfix'></div>
      </div>
