@@ -27,6 +27,11 @@ class Peliculas extends Component {
             favorita: pelicula
         })
     }
+
+    componentDidMount(){
+        alert("se acaba de cargar componente de pelicula")
+    }
+
     render() {
         var pStyle = {
             background: 'green',
@@ -42,11 +47,14 @@ class Peliculas extends Component {
                         Cambiar titulo de Batman
                     </button>
                 </div>
-                { this.state.favorita.titulo &&
+                { this.state.favorita.titulo ? (
                     <p className="favorita" style={pStyle}>
                     <strong>La pelicula favorita es:</strong>
                     <span>{this.state.favorita.titulo}</span>
                     </p>
+                    ) : (
+                        <p>No hay pelicula favorita</p>
+                    )
                 }
                 
                 {
