@@ -4,7 +4,9 @@ import React, { Component } from "react";
 class Errors extends Component {
     render(){
         return (
-            <p>Pagina no encontrada</p>
+            <div id='content'>
+                <h1>Pagina no encontrada</h1>
+            </div>
         );
     }
 }

@@ -3,13 +3,16 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import SeccionPrueba from './components/SeccionPrueba'
 import Micomponente from "./components/Micomponente";
 import Peliculas from './components/Peliculas';
+import Pagina from "./components/Pagina";
 import NotFound from './components/Errors'
 
 class Router extends Component{
-  
+
+    
+
     render(){
-        return(
-            
+       
+        return(           
             
                 <BrowserRouter>
                     <Routes>
@@ -17,6 +20,7 @@ class Router extends Component{
                             <Route exact path="/ruta-prueba" element={<SeccionPrueba/>} ></Route>
                             <Route exact path="/segunda-prueba" element={<Micomponente/>} ></Route>
                             <Route exact path="/pagina1" element={<h1>Prueba</h1>}/>
+                            <Route exact path="/pagina/:userid" element={<Pagina/>}/>
                             <Route path="*" element={<NotFound />} />
                     </Routes>
                 </BrowserRouter>    
