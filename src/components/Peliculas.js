@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import Pelicula from "./Pelicula";
+import Slyder from "./Slyder";
+import Sidebar from "./Sidebar";
 class Peliculas extends Component {
 
     state = {
@@ -29,7 +31,7 @@ class Peliculas extends Component {
     }
 
     componentDidMount(){
-        alert("se acaba de cargar componente de pelicula")
+       // alert("se acaba de cargar componente de pelicula")
     }
 
     render() {
@@ -39,7 +41,14 @@ class Peliculas extends Component {
             padding: '10px'
         }
         return (
-            <div id="content" className="peliculas">
+        <div id="peliculas">
+            <Slyder
+                title="Peliculas"
+                size="slider-small" />
+
+            <div className="center">
+            <div  id="content">
+                   
                 <h2 className="subheader">Peliculas</h2>
                 <p>Seleccion de peliculas de {this.state.nombre}</p>
                 <div>
@@ -68,7 +77,16 @@ class Peliculas extends Component {
                         )
                     })
                 }
+              
+                                    <div className="clearfix"></div>
+                                    </div>
             </div>
+
+            <Sidebar/>
+                <div className='clearfix'></div>
+
+            </div>
+
         );
     }
 }

@@ -11,6 +11,7 @@ import Sidebar from './components/Sidebar';
 import Footer from './components/Footer';
 import Blog from './components/Blog'
 import Home from "./components/Home";
+import Formulario from "./components/Formulario";
 class Router extends Component{
 
     
@@ -26,7 +27,8 @@ class Router extends Component{
                     <Routes>
                             <Route exact path="/" element={<Home/>} ></Route>
                             <Route exact path="/blog" element={<Blog/>} ></Route>
-                            <Route exact path="/segunda-prueba" element={<Micomponente/>} ></Route>
+                            <Route exact path="/formulario" element={<Formulario/>}></Route>
+                            <Route exact path="/peliculas" element={<Peliculas/>}></Route>
                             <Route exact path="/pagina1" element={<h1>Prueba</h1>}/>
                             <Route exact path="/pagina/:userid" element={<Pagina/>}/>
                             <Route path="*" element={<NotFound />} />
