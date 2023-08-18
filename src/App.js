@@ -7,7 +7,8 @@ import Slyder from './components/Slyder';
 import Sidebar from './components/Sidebar';
 import Footer from './components/Footer';
 
-import Peliculas from './components/Peliculas';
+
+import Route from './Router'
 function App() {
  
   var btnString = "Leer más" 
@@ -22,8 +23,12 @@ function App() {
      
       
       <div className="center">
+        <Route/>
+           {/* 
             <Peliculas/>
             <Sidebar/>
+          */}
+          <Sidebar/>
         <div className='clearfix'></div>
      </div>
       <Footer/>
