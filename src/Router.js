@@ -9,6 +9,8 @@ import Header from './components/Header';
 import Slyder from './components/Slyder';
 import Sidebar from './components/Sidebar';
 import Footer from './components/Footer';
+import Blog from './components/Blog'
+import Home from "./components/Home";
 class Router extends Component{
 
     
@@ -19,22 +21,17 @@ class Router extends Component{
             
                 <BrowserRouter>
                  <Header/>
-                 <Slyder 
-                    title = "Bienvenido al Curso de React con Víctor Robles de victorroblesweb.es"
-                    btn = {btnString}
-                />
-                 <div className="center">
+                 
+                
                     <Routes>
-                            <Route exact path="/" element={<Peliculas/>} ></Route>
-                            <Route exact path="/ruta-prueba" element={<SeccionPrueba/>} ></Route>
+                            <Route exact path="/" element={<Home/>} ></Route>
+                            <Route exact path="/blog" element={<Blog/>} ></Route>
                             <Route exact path="/segunda-prueba" element={<Micomponente/>} ></Route>
                             <Route exact path="/pagina1" element={<h1>Prueba</h1>}/>
                             <Route exact path="/pagina/:userid" element={<Pagina/>}/>
                             <Route path="*" element={<NotFound />} />
                     </Routes>
-                    <Sidebar/>
-                        <div className='clearfix'></div>
-                    </div>
+                 
                     <Footer/>
                 
                 </BrowserRouter>    
