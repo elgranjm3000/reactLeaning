@@ -1,8 +1,10 @@
 import React, {Component} from "react";
 import logo from '../assets/images/logo.svg'
+import { Link } from 'react-router-dom';
 
 class Header extends Component {
     render(){
+        var btnString = "Leer más" 
         return (
         <header id="header">
             <div className="center">
@@ -18,19 +20,19 @@ class Header extends Component {
                 <nav id="menu">
                     <ul>
                         <li>
-                            <a href="index.html">Inicio</a>
+                            <Link to="/">Inicio</Link>
                         </li>
                         <li>
-                            <a href="blog.html">Blog</a>
+                            <Link to="/ruta-prueba">Blog</Link>
                         </li>
                         <li>
-                            <a href="formulario.html">Formulario</a>
+                            <Link to="/segunda-prueba">Formulario</Link>
                         </li>
                         <li>
-                            <a href="#">Pagina 1</a>
+                            <Link to="/pagina1">Pagina 1</Link>
                         </li>
                         <li>
-                            <a href="#">Pagina 2</a>
+                        <Link to="/segunda-prueba">Pagina 2</Link>
                         </li>                            
                     </ul>
                 </nav>
