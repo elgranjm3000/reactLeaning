@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom';
 
 class Header extends Component {
     render(){
-        var btnString = "Leer más" 
+       
         return (
         <header id="header">
             <div className="center">
@@ -20,19 +20,19 @@ class Header extends Component {
                 <nav id="menu">
                     <ul>
                         <li>
-                            <NavLink to="/" activeClassName="active">Inicio</NavLink>
+                            <NavLink to="/">Inicio</NavLink>
                         </li>
                         <li>
-                            <NavLink to="/blog" activeClassName="active">Blog</NavLink>
+                            <NavLink to="/blog">Blog</NavLink>
                         </li>
                         <li>
-                            <NavLink to="/formulario" activeClassName="active">Formulario</NavLink>
+                            <NavLink to="/formulario">Formulario</NavLink>
                         </li>
                         <li>
-                            <NavLink to="/peliculas" activeClassName="active">Peliculas</NavLink>
+                            <NavLink to="/peliculas" >Peliculas</NavLink>
                         </li>
                         <li>
-                            <NavLink to="/" activeClassName="active">Pagina 2</NavLink>
+                            <NavLink to="/" >Pagina 2</NavLink>
                         </li>                            
                     </ul>
                 </nav>
