@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import axios from 'axios'
 import Global from "../Globals";
+import Moment from 'react-moment'
+import 'moment/locale/es'
 class Articles extends Component {
 
     url = Global.url;
@@ -35,7 +37,8 @@ class Articles extends Component {
     
                         <h2>{article.title}</h2>
                         <span className="date">
-                            {article.date}
+                            <Moment fromNow>{article.date}</Moment>
+                            
                         </span>
                         <a href="#">Leer más</a>
 
