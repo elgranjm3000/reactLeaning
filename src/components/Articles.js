@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import {Link} from  'react-router-dom';
 import axios from 'axios'
 import Global from "../Globals";
 import Moment from 'react-moment'
@@ -12,8 +13,26 @@ class Articles extends Component {
         status:null
     }
     componentWillMount(){
-        this.getArticle()
+        var home = this.props.home;
+        if(home === "true"){
+            this.getArticleLast()
+        }else{
+            this.getArticle()
+        }
+        
     }
+
+    getArticleLast = () =>{
+        axios.get(this.url+"articles/last")
+        .then(res=>{
+            console.log(res.data.results)
+            this.setState({
+                article : res.data.results,
+                status:"success"
+            })
+            console.log(this.state.article)
+        });
+   }
     
    getArticle = () =>{
         axios.get(this.url+"articles")
@@ -35,12 +54,12 @@ class Articles extends Component {
                             <img src={this.imagen} alt="Paisaje" />
                         </div>
     
-                        <h2>{article.title}</h2>
+                        <h2 key={article.id}>{article.title}</h2>
                         <span className="date">
                             <Moment fromNow>{article.date}</Moment>
                             
                         </span>
-                        <a href="#">Leer más</a>
+                        <Link to={'/blog/article/'+article.id}>Leer más</Link>
 
                         <div className="clearfix"></div>
                     </article>

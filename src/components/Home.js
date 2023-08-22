@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Slyder from "./Slyder";
 import Sidebar from "./Sidebar";
+import Articles from "./Articles";
 class Home extends Component {
 
 
@@ -14,6 +15,9 @@ class Home extends Component {
                     btn="Leer mas"/>
 
                 <div className="center" id="content">
+                    <Articles
+                    home="true"
+                    />
                    
                     <div className="clearfix"></div>
                 </div>
