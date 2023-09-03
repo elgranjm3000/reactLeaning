@@ -11,13 +11,8 @@ function App() {
  
   
   return (
-    <div className="app">   
-     
-     
-      
-     
-        <Route/>
-      
+    <div className="app">  
+        <Route/>      
     </div>
   );
 }

@@ -1,40 +1,64 @@
-import React, { Component } from "react";
+import React, { useState, useEffect } from "react";
 import {Link} from  'react-router-dom';
 import axios from 'axios'
 import Global from "../Globals";
 import Moment from 'react-moment'
 import 'moment/locale/es'
-class Articles extends Component {
 
-    url = Global.url;
-    imagen = Global.image;
-    state = {
-        article: [],
-        status:null
-    }
-    componentWillMount(){
-        var home = this.props.home;
-        if(home === "true"){
-            this.getArticleLast()
-        }else{
-            this.getArticle()
-        }
-        
-    }
+const Articles = (props) => {
 
-    getArticleLast = () =>{
-        axios.get(this.url+"articles/last")
-        .then(res=>{
-            console.log(res.data.results)
-            this.setState({
-                article : res.data.results,
-                status:"success"
-            })
-            console.log(this.state.article)
-        });
+    const[users,setUsers] = useState([])
+    const[search,setSearh] = useState("")
+
+    const url = Global.url;
+    const imagen = Global.image;
+    var home = props.home;
+    var keySearch = props.keySearch;
+   
+    const getArticle = async () => {
+        const response = await fetch(url+"articles")
+        const data = await response.json()        
+        setUsers(data.results)      
    }
+    const getArticleLast = async () => {
+        const response = await fetch(url+"articles/last")
+        const data = await response.json()
+        setUsers(data.results)       
+   }
+   const getArticleSerach = async (keySearch) => {
+    const response = await fetch(url+"busqueda/"+keySearch)
+    const data = await response.json()
+    setUsers(data.results)        
+}
+
+useEffect( () =>{
+    getArticleSerach(keySearch)
+
+}, [])
+
+
+return (
+    <div>
+    { users.map( (article) => (
+        <article className="article-item" id="article-template">
+        <div className="image-wrap">
+            <img src={imagen} alt="Paisaje" />
+        </div>
+
+        <h2 key={article.id}>{article.title}</h2>
+        <span className="date">
+            <Moment fromNow>{article.date}</Moment>
+            
+        </span>
+        <Link to={'/blog/article/'+article.id}>Leer más</Link>
+
+        <div className="clearfix"></div>
+    </article>
+    ))}
+    </div>
+)
     
-   getArticle = () =>{
+   /*getArticle = () =>{
         axios.get(this.url+"articles")
         .then(res=>{
             console.log(res.data.results)
@@ -45,6 +69,25 @@ class Articles extends Component {
             console.log(this.state.article)
         });
    }
+
+   getArticleSerach = (keySearch) =>{
+    axios.get(this.url+"busqueda/"+keySearch)
+    .then(res=>{
+        
+        console.log(res.data.results)
+
+            this.setState({
+                article : res.data.results,
+                status:"success"
+            })
+        })
+        .catch( err => {
+            this.setState({
+                article : [],
+                status:"success"
+            })
+        });
+}
     render() {
         if(this.state.article.length > 1){
             var listArticle = this.state.article.map((article)=>{
@@ -85,7 +128,7 @@ class Articles extends Component {
             </div>
         );
       }
-    }
+    }*/
 }
 
 export default Articles;

@@ -8,6 +8,7 @@ import Footer from './components/Footer';
 import Blog from './components/Blog'
 import Home from "./components/Home";
 import Formulario from "./components/Formulario";
+import Search from "./components/Search";
 class Router extends Component{
 
     
@@ -31,6 +32,8 @@ class Router extends Component{
                                     <h1>Pagina</h1>
                                 </React.Fragment>
                              )} />
+                            <Route exact path="/redirect/:search"></Route>
+                            <Route path="/busqueda/:search" element = {<Search/>}/>
                             <Route path="*" element={<NotFound />} />
                     </Routes>
                  
